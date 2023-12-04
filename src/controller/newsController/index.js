@@ -1,6 +1,6 @@
 const getAllNews = require('../../lib/getAllNews');
+const getNewsByCategory = require('../../lib/getNewsByCategories');
 const getNewsById = require('../../lib/getNewsById');
-const News = require('../../models/News')
 
 
 const allNews = async (req, res, next) => {
@@ -23,5 +23,21 @@ const newsById = async (req, res, next) => {
     }
 }
 
+const newsByCategory = async (req, res, next) => {
+    try {
+        const category = req.query.category;
+        if (category === 'all-news') {
+            const result = await getAllNews()
+            return res.send(result)
+        }
+        else {
+            const result = await getNewsByCategory(category);
+            return res.send(result)
+        }
+    } catch (error) {
+        next(error);
+    }
+}
 
-module.exports = { allNews, newsById }
+
+module.exports = { allNews, newsById, newsByCategory }

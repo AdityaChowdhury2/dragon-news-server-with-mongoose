@@ -1,4 +1,5 @@
-const News = require("../../models/News")
+const News = require("../../models/news");
+
 
 const getNewsById = async (filter) => {
     const news = await News.findOne(filter);

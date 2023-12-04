@@ -1,4 +1,5 @@
-const News = require("../../models/News")
+const News = require("../../models/news");
+
 
 const getAllNews = async () => {
     const cursor = await News.find();

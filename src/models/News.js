@@ -24,5 +24,6 @@ const NewsSchema = new Schema({
     details: String,
 })
 
-const News = model('News', NewsSchema)
+const News = model('news', NewsSchema)
+
 module.exports = News;
